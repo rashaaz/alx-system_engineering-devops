@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $(( printf $16#"$WATER" +16#"$STIR"))
