@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(( printf $16#"$WATER" +16#"$STIR"))
+echo "ibase=$WATER;$WATER+ibase=$STIR;$STIR" | bc | xargs printf "Result in base $BESTCHOL: %$BESTCHOL\n"
