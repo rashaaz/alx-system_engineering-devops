@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times
+
+cun=0
+while [ $cun -lt 10 ]
+do
+    echo "Best School"
+    ((cun++))
+done
