@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# This script displays numbers with superstitions for specific iterations
+
+cun=1
+
+while [ $cun -le 20 ]; do
+  case $cun in
+    4)
+      echo "$cun"
+      echo "bad luck from China"
+      ;;
+    9)
+      echo "$cun"
+      echo "bad luck from Japan"
+      ;;
+    17)
+      echo "$cun"
+      echo "bad luck from Italy"
+      ;;
+    *)
+      echo "$cun"
+      ;;
+  esac
+  ((cun++))
+done
