@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Use kill to stop the background process
+k_p=$(pgrep -a "bash" | grep "4-to_infinity" | cut -d' ' -f1)
+kill "$k_p"
