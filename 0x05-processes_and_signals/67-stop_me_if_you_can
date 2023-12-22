@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Use kill to stop the background process
+
+pkill -f 7-highlander
