@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Find and kill the 7-highlander process
+ss=$(pgrep -f './7-highlander')
+kill -s SIGKILL "$ss"
