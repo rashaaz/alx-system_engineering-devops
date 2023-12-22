@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# This Bash script demonstrates process management and signal handling.
+# It creates a PID file '/var/run/myscript.pid' containing the PID of the script.
+# The script displays "To infinity and beyond" indefinitely with a sleep of 2 seconds.
+# It sets up signal handlers for SIGINT (Ctrl+C), SIGTERM, and SIGQUIT.
+# When receiving a SIGINT, it echoes "Y U no love me?!".
+# When receiving a SIGTERM, it echoes "I hate the kill command" and terminates itself, cleaning up by removing the PID file.
+# A trap is set for SIGQUIT to call the terminator function and handle cleanup.
+
+terminator() {
+  rm /var/run/myscript.pid
+  exit
+}
+
+echo "$$" > /var/run/myscript.pid
+
+while true
+do
+  echo "To infinity and beyond"
+  sleep 2
+  trap 'echo "Y U no love me?!"' SIGINT
+  trap 'echo "I hate the kill command" && terminator' SIGTERM
+  trap 'terminator' SIGQUITgit 
+done
