@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script displays "To infinity and beyond" indefinitely with a sleep of 2 seconds
+
+cun=0
+trap 'echo "I am invincible!!!"' SIGTERM
+while [ $cun ]
+do
+    echo 'To infinity and beyond'
+    sleep 2
+done
