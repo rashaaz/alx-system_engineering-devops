@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Script: 4-TCP_and_UDP_ports
+# Displays listening ports with PID and program name
+
+netstat -l --program
