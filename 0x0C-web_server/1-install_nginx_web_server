@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Check if number of arguments is less than 4
+#+ Assign arguments to variables
+#+ Transfer the file using scp
+#++ Check if scp was successful
+
+apt-get update
+apt-get install nginx -y
+
+mkdir /etc/nginx/html
+touch /etc/nginx/html/index.html
+echo "Hello World!" > /etc/nginx/html/index.html
+printf %s "server {
+	listen    80 default_server;
+	listen    [::]:80 default_server;
+	root      /etc/nginx/html;
+	index     index.html index.htm;
+}
+" > /etc/nginx/sites-available/default
+
+service nginx restart
