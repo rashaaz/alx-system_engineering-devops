@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Script: 0-world_wide_web
+# Description: Display information about subdomains
+# Function to display usage
+# Check if the number of arguments is correct
+
+# Default subdomains to check
+# Function to display DNS information for a subdomain
+# Check if a specific subdomain is requested
+# Display information for default subdomains
+
+
+
+subdomains_all=( "www" "lb-01" "web-01" "web-02" )
+
+runDig () {
+    subdomain=$1
+    domain=$2
+
+    dig "$subdomain.$domain" | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v s="$subdomain" 'BEGIN { FS = " " } ; { print "The subdomain " s " is a " $4 " record and points to " $5 }'
+}
+
+if [ $# -eq 1 ]; then
+    domain="$1"
+    for i in "${subdomains_all[@]}"
+    do
+	runDig "$i" "$domain"
+    done
+elif [ $# -eq 2 ]; then
+    domain="$1"
+    subdomain="$2"
+    runDig "$subdomain" "$domain"
+fi
