@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-    this module contains the function number_of_subscribers
+    0-subs
 '''
 import requests
 from sys import argv
@@ -8,7 +8,7 @@ from sys import argv
 
 def number_of_subscribers(subreddit):
     '''
-        returns the number of subscribers for a given subreddit
+        0-subs
     '''
     user = {'User-Agent': 'Lizzie'}
     url = requests.get('https://www.reddit.com/r/{}/about.json'
